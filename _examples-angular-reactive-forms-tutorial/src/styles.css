@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* apply google font family */
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
+
+body {
+  background:rgba(148, 134, 93, 0.35);;
+  /* font-family: 'ZCOOL XiaoWei', serif !important; */
+}
+
+* {
+  font-family: 'ZCOOL XiaoWei', serif !important;
+}
+
+.form-container {
+  display:block;
+  width:90%;
+  padding:2em;
+  margin: 2em auto;
+  background:#fff;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight:bold;
+}
+
+.button {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* error text message alert */
+.alert {
+  background: #f2dada;
+  padding: 5px;
+  font-size: .9em;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: 2s alertAnim forwards;
+}
+
+/* animation effect for error text message alert */
+@keyframes alertAnim {
+  from {
+      opacity:0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity:1;
+      transform: translateY(0);
+  }
+}

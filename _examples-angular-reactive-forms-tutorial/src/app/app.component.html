@@ -1,0 +1,59 @@
+<!-- show this template if name property not exist or form not submitted -->
+<div *ngIf="!name; else formsubmitdata">
+
+  <!-- associate the model with view -->
+  <form [formGroup]="simpleBegReactiveForm" (ngSubmit)="submitFormData(simpleBegReactiveForm.value)">
+
+    <div class="form-container">
+
+      <div class="row columns">
+        
+        <h1>Beginners Simple Reactive Form</h1>
+
+        <!-- name -->
+        <label>Name
+          <input type="text" placeholder="Enter Name" formControlName="name">
+        </label>
+
+        <!-- show name alert text -->
+        <div class="alert" *ngIf="!simpleBegReactiveForm.controls['name'].valid && simpleBegReactiveForm.controls['name'].touched">{{ titleAlertText }}</div>
+
+        <!-- description -->
+        <label>Description
+          <textarea formControlName="description"></textarea>
+        </label>
+        
+        <!-- show name description text -->
+        <div class="alert" *ngIf="!simpleBegReactiveForm.controls['description'].valid && simpleBegReactiveForm.controls['description'].touched">{{ descriptionAlertText }}</div>
+
+        <!-- checkbox -->
+        <label for="validate">Minimum of 5 Characters Name required</label>
+        <input type="checkbox" name="validate" value="1" formControlName="validate" > ON
+
+        <!-- submit button -->
+        <input type="submit" class="button expanded" value="Submit Form" [disabled]="!simpleBegReactiveForm.valid">
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+
+<!-- show this template if name property exists or form submitted -->
+<ng-template #formsubmitdata>
+
+  <div class="form-container">
+
+    <div class="row columns">
+
+      <h2>You Entered Name: {{ name }}</h2>
+
+      <p>Your Description Details: {{ description }}</p>
+
+    </div>
+
+  </div>
+  
+</ng-template>
